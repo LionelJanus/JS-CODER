@@ -71,9 +71,16 @@ if (seleccion == "si"){
          
          let totalFinal
 
-         if(seleccion != "no"){
-
-             alert("Gracias por su compra , Hasta Luego")
+         if (seleccion == "si"){
+            alert ("A continuacion mostraremos nuestros productos")
+            let mensajeCervezas = "Nuestros siguientes productos son:"
+            
+            alert (mensajePorAlert)
+        
+        
+          } else if (seleccion == "no"){
+                  alert("Gracias por Venir, Vuelva Pronto!")
+              }
 
              for(let carritoCervezas of carrito) {
                 totalFinal=carritoCervezas.precio * carritoCervezas.unidades+"$"}
@@ -82,4 +89,4 @@ if (seleccion == "si"){
         
                 
                 alert(`el total a pagar por su compra es : ${totalFinal}`)
-        }
+        
