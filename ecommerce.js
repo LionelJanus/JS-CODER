@@ -16,16 +16,16 @@ for( let cerveza of cervezas){
 
 let carrito = []
 
-let seleccion = prompt ("¿Desea comprar algun producto?, si o no")
+let seleccion = prompt ("¿Desea ver nuestras cervezas?, si o no")
 
 while (seleccion != "si" && seleccion != "no"){
     alert("Por Favor ,Elija una Opcion")
-    seleccion = prompt ("Desea comprar algun producto?, si o no")
+    seleccion = prompt ("Desea ver nuestras cervezas?, si o no")
 }   
 
 if (seleccion == "si"){
-    alert ("A continuacion mostraremos nuestros productos")
-    let mensajeCervezas = "Nuestros siguientes productos son:"
+    alert ("A continuacion mostraremos nuestras cervezas disponibles")
+    let mensajeCervezas = "Nuestras cervezas en stock son:"
     
     alert (mensajePorAlert)
 
@@ -72,8 +72,8 @@ if (seleccion == "si"){
          let totalFinal
 
          if (seleccion == "si"){
-            alert ("A continuacion mostraremos nuestros productos")
-            let mensajeCervezas = "Nuestros siguientes productos son:"
+            alert ("A continuacion mostraremos nuestras cervezas disponibles")
+            let mensajeCervezas = "Nuestras cervezas en stock son:"
             
             alert (mensajePorAlert)
         
