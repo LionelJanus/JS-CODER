@@ -71,8 +71,8 @@ if (seleccion == "si"){
          
          let totalFinal
 
-         if(seleccion != "si"){
-            
+         if(seleccion != "no"){
+
              alert("Gracias por su compra , Hasta Luego")
 
              for(let carritoCervezas of carrito) {
