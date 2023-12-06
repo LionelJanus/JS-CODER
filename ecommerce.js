@@ -45,12 +45,10 @@ let opcion = prompt ("Desea Comprar alguna de nuestros productos?, si o no")
         mensajeCervezas = "Nuestras cervezas en stock son:"
         alert (mensajePorAlert)
 }
-      else if (opcion == "no"){
+      if (opcion == "no"){
          alert("Gracias por Venir, Vuelva Pronto!")
-      
   }
          
-    
      while(seleccion != "no"){
          let producto = prompt("Agrega un Producto al Carrito")
          let precio=0
@@ -85,7 +83,7 @@ let opcion = prompt ("Desea Comprar alguna de nuestros productos?, si o no")
      
          seleccion = prompt("¿Desea comprar algo mas?")
          
-         let totalFinal
+         
 
          if (seleccion == "si"){
             alert ("A continuacion mostraremos nuestras cervezas disponibles")
@@ -94,15 +92,16 @@ let opcion = prompt ("Desea Comprar alguna de nuestros productos?, si o no")
             alert (mensajePorAlert)
         
         
-          } else if (seleccion == "no"){
+          } if (seleccion == "no"){
                   alert("Gracias por Venir, Vuelva Pronto!")
-              }
+                
 
+              } 
+             }
+             let totalFinal
              for(let carritoCervezas of carrito) {
                 totalFinal=carritoCervezas.precio * carritoCervezas.unidades+"$"}
-             
-            }
-        
-                
+            
                 alert(`el total a pagar por su compra es : ${totalFinal}`)
+                
         
