@@ -27,14 +27,30 @@ if (seleccion == "si"){
     alert ("A continuacion mostraremos nuestras cervezas disponibles")
     let mensajeCervezas = "Nuestras cervezas en stock son:"
     
-    alert (mensajePorAlert)
-
-    // alert(mensajePorAlert)
+    alert (mensajePorAlert)  
 
   } else if (seleccion == "no"){
           alert("Gracias por Venir, Vuelva Pronto!")
       }
 
+let opcion = prompt ("Desea Comprar alguna de nuestros productos?, si o no")
+
+    while (opcion != "si" && opcion != "no"){
+
+        alert("Por Favor ,Elija una Opcion")
+        opcion = prompt ("Desea Comprar alguna de nuestros productos?, si o no")
+
+  }   if (opcion=="si"){
+        alert ("A continuacion mostraremos nuestras cervezas disponibles")
+        mensajeCervezas = "Nuestras cervezas en stock son:"
+        alert (mensajePorAlert)
+}
+      else if (opcion == "no"){
+         alert("Gracias por Venir, Vuelva Pronto!")
+      
+  }
+         
+    
      while(seleccion != "no"){
          let producto = prompt("Agrega un Producto al Carrito")
          let precio=0
