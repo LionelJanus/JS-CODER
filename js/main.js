@@ -66,7 +66,6 @@ function addToCart(id){
                 name: productToFind.name,
                 description: productToFind.description,
                 precio: productToFind.precio,
-                
                 cantidad: 1
             })
         }
@@ -74,14 +73,7 @@ function addToCart(id){
         // Una vez realizado todo, guardo el carrito en localStorage
         localStorage.setItem('carrito', JSON.stringify(cart));
     }
-    function sumaUnidades(carrito) {
-        let totalFinal
-        totalFinal=0
-        for (localStorage of carrito) {
-          totalFinal = totalFinal + (productToFind.precio * productInCart.cantidad)
-        }
     
-        console.log(totalFinal)
     
     }
 }
