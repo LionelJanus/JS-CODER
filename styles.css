@@ -1,0 +1,127 @@
+*{
+margin: 0px;
+}
+
+header{
+    background-image:url(./images/home-header-bg.jpg) ;
+    margin: 0;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+.logo img{
+    width: 150px;
+    margin-left: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.nav-principal {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;   
+} 
+
+ul{
+    width: 100%;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex !important;
+    margin-right: 20px;
+}
+
+li{
+    margin-left:80px;
+    list-style-type: none;
+}
+a{
+    color: darkgreen;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.titulo {
+    color: rgb(14, 129, 14);
+    text-shadow:1px 1px white;
+    font-size: 40px;
+    width: 100%;
+    align-items: center !important;
+    justify-content: initial !important;
+    display: flex !important;
+}
+
+
+
+a:hover{
+    transform: scale(1.2);
+    font-size: 24px;
+    
+}
+
+anuncio-principal{
+    margin-top: 70px;
+   
+     
+}
+
+.anuncio-title {
+    margin-top: 100px;
+    margin-left: 20px;
+    color:goldenrod;
+    text-shadow: 2px 2px black;
+    font-size: 40px;
+    font-family:sans-serif;
+}
+.anuncio-text{
+    margin-left: 30px;
+    color:goldenrod;
+    text-shadow: 2px 2px black;
+    font-size: 35px;
+}
+
+.section-nosotros{
+    background-image: url(./images/cervezas.png);
+    margin: 0%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+
+.section-productos{
+    background-image: url(./images/ingredientes_de_la_cerveza.jpg);
+    margin: 0%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px; 
+}
+
+.container{
+    grid-template-rows: 2  2fr;
+    display: flex;
+    gap: 20px;
+    padding: 2rem;
+}
+
+.card{
+    background-color: beige;
+    box-shadow: 30%;
+    opacity: 80%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 10rem;
+    width: 10rem;
+    border: solid 1px black;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem
+}
+
+.card:hover{
+    cursor: pointer;
+}
