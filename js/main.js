@@ -74,7 +74,15 @@ function addToCart(id){
         localStorage.setItem('carrito', JSON.stringify(cart));
     }
     
-   
+    // function localStorage.ge(carrito) {
+    //     let totalFinal
+    //     totalFinal=0
+    //     for (productInCart of carrito) {
+    //       totalFinal = totalFinal + (productToFind.precio * productInCart.unidades)
+    //     }
+    
+    //     alert(`el total a pagar por su compra es : ${totalFinal}` + "$")
+    
     }
 
 
