@@ -73,9 +73,6 @@ function addToCart(id){
         // Una vez realizado todo, guardo el carrito en localStorage
         localStorage.setItem('carrito', JSON.stringify(cart));
     }
-    
-    
-    }
 }
 
 
