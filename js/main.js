@@ -21,7 +21,7 @@ productosBaseDeDatos.forEach((el, idx) => {
    
     btnInfo.onclick = function(){
         addToCart(el.id);
-        alert("Capturaste un " + el.name);
+        alert("Agregaste un " + el.name);
     };
     
 
@@ -105,6 +105,7 @@ function addToCart(id){
     
     // Declaro la funcion que recibe como parametro el id de producto
     function addToCart(id) {
+        console.log ("Agregaste un nuevo producto");
         // Obtengo el carrito, compruebo que exista, sino existe, lo declaro como un array vacio
         let cart = JSON.parse(localStorage.getItem('carrito')) || [];
     
