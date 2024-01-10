@@ -42,7 +42,7 @@ function addToCart(id){
 
     
     // Llamo a los producto
-    const products = productosBaseDeDatos // Este seria tu array;
+    const products = productosBaseDeDatos 
 
     // Busco en los productos por el id que me llega de parametro
     let productToFind = products.find(product => parseInt(product.id) === parseInt(id));
@@ -74,7 +74,7 @@ function addToCart(id){
         localStorage.setItem('carrito', JSON.stringify(cart));
     }
     
-    // function localStorage(carrito) {
+    // function localStorage.ge(carrito) {
     //     let totalFinal
     //     totalFinal=0
     //     for (productInCart of carrito) {
