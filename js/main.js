@@ -145,7 +145,7 @@ function addToCart(id){
     }
     
     // Ejemplo de uso
-    addToCart(); // Puedes pasar el ID del producto que deseas agregar al carrito
+    addToCart(1); // Puedes pasar el ID del producto que deseas agregar al carrito
     
     }
 
