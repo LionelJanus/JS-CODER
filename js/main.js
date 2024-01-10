@@ -18,13 +18,13 @@ productosBaseDeDatos.forEach((el, idx) => {
     
     const btnInfo = document.createElement("button");
     btnInfo.innerText = "Agregar";
-    btnInfo.onclick = function() {
+   
+    btnInfo.onclick = function(){
         addToCart(el.id);
+        alert("Capturaste un " + el.name);
     };
     
-    
 
-    
     card.appendChild(nombreProducto);
     card.appendChild(imgProducto);
     card.appendChild(description)
@@ -73,7 +73,18 @@ function addToCart(id){
         // Una vez realizado todo, guardo el carrito en localStorage
         localStorage.setItem('carrito', JSON.stringify(cart));
     }
-}
+    
+    // function localStorage(carrito) {
+    //     let totalFinal
+    //     totalFinal=0
+    //     for (productInCart of carrito) {
+    //       totalFinal = totalFinal + (productToFind.precio * productInCart.unidades)
+    //     }
+    
+    //     alert(`el total a pagar por su compra es : ${totalFinal}` + "$")
+    
+    }
+
 
 
 
