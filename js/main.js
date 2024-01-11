@@ -36,7 +36,7 @@ productosBaseDeDatos.forEach((el, idx) => {
 
 // Función para sumar productos y mostrar el total
 function sumarProductos() {
-    // Obtener los datos almacenados en localStorage
+    // datos almacenados en localStorage
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     // Verificar si hay productos en el carrito
@@ -45,11 +45,11 @@ function sumarProductos() {
         return 0;
     }
 
-    // Inicializar variables para la suma
+    // variables para la suma
     let totalProductos = 0;
     let totalValor = 0;
 
-    // Iterar sobre cada producto en el carrito y sumar las cantidades y valores
+    // cada producto en el carrito y sumar las cantidades y valores
     carrito.forEach(function (producto) {
         if (producto.cantidad && producto.precio) {
             totalProductos += parseInt(producto.cantidad);
