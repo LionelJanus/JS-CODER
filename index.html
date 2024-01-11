@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <script src="scripts/main.js"></script>
+    
     <header>
         <nav class="nav-principal">
             <div class="logo">
@@ -24,6 +24,15 @@
                 <li><a href="">Contacto</a></li>
             </ul>
         </nav>
+        <div class="imgcarrito"> <img src="./images/carro.png" alt=""></div>
+        <div class="caja-carrito">
+            
+           
+            <div id="containercarrito"></div>
+            <div id="carrito-lista"></div>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+            <p id="valor-total"></p>
+        </div>
         <div class="anuncio-pincipal" style="margin-top: 70px;">
             <h2 class="anuncio-title">¡Descubre el sabor de la cerveza como nunca antes! </h2>
             <p class="anuncio-text">Sumérgete en un mundo de variedad, calidad y pasión cervecera.
@@ -37,18 +46,13 @@
     </header>
     <main>
         
-        <section id="#nosotros" class="section-nosotros">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro recusandae in quo quas ad dolorum
-                consectetur. Maiores at earum maxime itaque sequi doloribus soluta cumque commodi atque, nemo
-                consectetur molestias?</p>
-
-        </section>
         <section id="#productos" class="section-productos">
            <div id="container" class="container" style="padding-top: 150px;"></div>
         </section>
     </main>
 <script src="./js/arrayproductos.js"></script>
 <script src="./js/main.js"></script>
+
 </body>
 
 </html>

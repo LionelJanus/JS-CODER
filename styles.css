@@ -2,6 +2,10 @@
 margin: 0px;
 }
 
+body{
+    background-color: burlywood;
+}
+
 header{
     background-image:url(./images/home-header-bg.jpg) ;
     margin: 0;
@@ -25,7 +29,7 @@ header{
     width: 100%;   
 } 
 
-ul{
+.nav-principal ul{
     width: 100%;
     align-items: center !important;
     justify-content: center !important;
@@ -33,7 +37,7 @@ ul{
     margin-right: 20px;
 }
 
-li{
+.nav-principal li{
     margin-left:80px;
     list-style-type: none;
 }
@@ -135,4 +139,27 @@ h5{
 
 .card:hover{
     cursor: pointer;
+}
+
+.imgcarrito{
+    width:20px ;
+    height: 20px;
+    margin-left: 10px;
+    
+}
+
+.imgcarrito img{
+    width: 40px;
+    height: 40px;
+}
+
+.carrito-lista ul{
+    margin: 10px;
+}
+
+.caja-carrito{
+    background-color: beige;
+    margin-top: 40px;
+    width: max-content;
+    border-radius: 5px;
 }
