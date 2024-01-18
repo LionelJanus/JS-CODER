@@ -7,7 +7,7 @@ body{
 }
 
 header{
-    background-image:url(./images/home-header-bg.jpg) ;
+    background-image:url(../images/home-header-bg.jpg) ;
     margin: 0;
     background-position: top;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ header{
     height: 800px;
 }
 .logo img{
-    width: 150px;
+    width: 10vh;
     margin-left: 200px;
     display: flex;
     justify-content: space-between;
@@ -87,7 +87,7 @@ anuncio-principal{
 }
 
 .section-nosotros{
-    background-image: url(./images/cervezas.png);
+    background-image: url(../images/cervezas.png);
     margin: 0%;
     background-position: top;
     background-repeat: no-repeat;
@@ -96,7 +96,7 @@ anuncio-principal{
 }
 
 .section-productos{
-    background-image: url(./images/ingredientes_de_la_cerveza.jpg);
+    background-image: url(../images/ingredientes_de_la_cerveza.jpg);
     margin: 0%;
     background-position: top;
     background-repeat: no-repeat;
@@ -141,25 +141,37 @@ h5{
     cursor: pointer;
 }
 
-.imgcarrito{
-    width:20px ;
-    height: 20px;
-    margin-left: 10px;
-    
-}
-
-.imgcarrito img{
+#carrito-icon  {
     width: 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 15px;
+    margin-top: 10px;
+
 }
 
-.carrito-lista ul{
-    margin: 10px;
+#carrito-icon {
+    cursor: pointer;
 }
 
-.caja-carrito{
-    background-color: beige;
-    margin-top: 40px;
-    width: max-content;
-    border-radius: 5px;
+#carrito-icon img{
+    width: 30px;
+    height: 30px;
 }
+
+#carrito-lista {
+    display: block;
+    width: fit-content;
+    background-color: azure;
+    border-radius: 10px;
+    padding: 10px;
+    float: inline-end;
+}
+
+#carrito-lista li{
+    flex-direction: column;
+}
+
+
+

@@ -8,8 +8,7 @@ const productosBaseDeDatos = [
   {
     id: 2,
     name: "PaleAle",
-    description:
-    " rica en lúpulo.",
+    description:" rica en lúpulo.",
     precio: "800",
   },
   {

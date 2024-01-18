@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="./css/styles.css">
+
     <title>Janusz Beer | Date un Gusto</title>
 </head>
 
 <body>
-    
     <header>
         <nav class="nav-principal">
             <div class="logo">
@@ -23,16 +22,14 @@
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
+            <!-- Icono del carrito -->
+            <div id="carrito-icon" onclick="mostrarOcultarCarrito()">
+                <img src="/images/cart-arrow-down.svg"></img>
+            </div>
         </nav>
-        <div class="imgcarrito"> <img src="./images/carro.png" alt=""></div>
-        <div class="caja-carrito">
-            
-           
-            <div id="containercarrito"></div>
-            <div id="carrito-lista"></div>
-            <button onclick="finalizarCompra()">Finalizar Compra</button>
-            <p id="valor-total"></p>
-        </div>
+        <!-- Lista del carrito -->
+        <div id="carrito-lista"></div>        
+
         <div class="anuncio-pincipal" style="margin-top: 70px;">
             <h2 class="anuncio-title">¡Descubre el sabor de la cerveza como nunca antes! </h2>
             <p class="anuncio-text">Sumérgete en un mundo de variedad, calidad y pasión cervecera.
@@ -45,13 +42,20 @@
         </div>
     </header>
     <main>
-        
         <section id="#productos" class="section-productos">
-           <div id="container" class="container" style="padding-top: 150px;"></div>
+            <div id="loader" style="display:none;">
+                <p>Agregando producto...</p>
+                <span class="loader"></span>
+                </div>
+            </div>
+            <div id="container" class="container" style="padding-top: 150px;"></div>
+            
         </section>
+        
+        
     </main>
-<script src="./js/arrayproductos.js"></script>
-<script src="./js/main.js"></script>
+    <script src="./js/arrayproductos.js"></script>
+    <script src="./js/main.js"></script>
 
 </body>
 

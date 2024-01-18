@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 
+
 productosBaseDeDatos.forEach((el, idx) => {
     const card = document.createElement("div");
     card.className = "card";
@@ -21,7 +22,6 @@ productosBaseDeDatos.forEach((el, idx) => {
 
     btnInfo.onclick = function () {
         addToCart(el.id);
-        alert("Agregaste un " + el.name);
         sumarProductos(); // Llamo a la función para sumar productos y mostrar el total
     };
 
@@ -66,7 +66,8 @@ function sumarProductos() {
 
 // Función para agregar productos al carrito
 function addToCart(id) {
-    console.log("Agregaste un nuevo producto");
+    // console.log("Agregaste un nuevo producto");
+    
     // Obtengo el carrito, compruebo que exista, sino existe, lo declaro como un array vacío
     let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -152,4 +153,51 @@ mostrarCarrito();
 function finalizarCompra() {
     let totalValor = sumarProductos(); // Obtener el valor total
     alert('Compra finalizada. Valor total: $' + totalValor.toFixed(2));
+    
+     // Limpiar el carrito después de realizar la compra
+     localStorage.removeItem('carrito');
+
+     // Actualizar la visualización del carrito
+     mostrarCarrito();
 }
+
+
+ // Función para mostrar y ocultar el carrito
+ function mostrarOcultarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let carritoLista = document.getElementById('carrito-lista');
+    let finalizarCompraBtn = document.getElementById('finalizar-compra-btn');
+// Función para mostrar el carrito
+    function mostrarCarrito() {
+            
+        if (carrito.length === 0) {
+            carritoLista.innerHTML = "<p>El carrito está vacío</p>";
+            if (finalizarCompraBtn) {
+                finalizarCompraBtn.style.display = 'none'; // Ocultar el botón si el carrito está vacío
+            }
+        } else {
+            // Renderizar la lista de productos en el carrito
+            // Puedes utilizar el código de la función mostrarCarrito que ya tienes
+
+            // Mostrar el botón "Finalizar Compra" dentro del carrito
+            if (!finalizarCompraBtn) {
+                finalizarCompraBtn = document.createElement('button');
+                finalizarCompraBtn.id = 'finalizar-compra-btn';
+                finalizarCompraBtn.innerText = 'Finalizar Compra';
+                finalizarCompraBtn.onclick = finalizarCompra;
+                carritoLista.appendChild(finalizarCompraBtn);
+            } else {
+                finalizarCompraBtn.style.display = 'block'; // Mostrar el botón si hay productos en el carrito
+            }
+        }
+    }
+    
+    // Toggle (alternar) la visibilidad del carrito
+    carritoLista.style.display = (carritoLista.style.display === 'block') ? 'none' : 'block';
+
+    // Mostrar el carrito actualizado al hacer clic en el ícono
+    mostrarCarrito();
+}
+
+
+       
