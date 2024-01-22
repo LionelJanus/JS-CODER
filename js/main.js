@@ -1,38 +1,61 @@
+//********************************************************************** */
+// Cuando cargue el documento HTML, llama a la funcion traer productos
+//********************************************************************** */
+ traerProductos();
+
+
 const container = document.getElementById("container");
+function traerProductos() {
+    
+    fetch(`./js/arrayproductos.json`)  // fetch utiliza la url y hace una promesa
+        .then(response => response.json()) // el primer then nos dice que después de resolver exitosamente la promesa, apliquemos el método .json() para formatear la data 
+        .then(data => {
+            const productos = data;
 
+            //********************************************************************** */
+            // Una vez que obtenes los productos de json, los guardas en localStorage
+            //********************************************************************** */
+            localStorage.setItem("productos", JSON.stringify(data));
 
-productosBaseDeDatos.forEach((el, idx) => {
-    const card = document.createElement("div");
-    card.className = "card";
+            productos.forEach((el, idx) => {
+                console.log(`${idx + 1}. ${el.name}`);
+                const card = document.createElement("div");
+                card.className = "card";
 
-    const nombreProducto = document.createElement("h4");
-    nombreProducto.innerText = el.name;
+                const nombreProducto = document.createElement("h4");
+                nombreProducto.innerText = el.name;
 
-    const imgProducto = document.createElement("img");
-    imgProducto.src = el.img;
+                const imgProducto = document.createElement("img");
+                imgProducto.src = el.img;
 
-    const description = document.createElement("h5");
-    description.innerText = el.description;
+                const description = document.createElement("h5");
+                description.innerText = el.description;
 
-    const precio = document.createElement("h4");
-    precio.innerText ="$" + el.precio;
+                const precio = document.createElement("h4");
+                precio.innerText = "$" + el.precio;
 
-    const btnInfo = document.createElement("button");
-    btnInfo.innerText = "Agregar";
+                const btnInfo = document.createElement("button");
+                btnInfo.innerText = "Agregar";
+                
 
-    btnInfo.onclick = function () {
-        addToCart(el.id);
-        sumarProductos(); // Llamo a la función para sumar productos y mostrar el total
-    };
+                btnInfo.onclick = function () {
+                    addToCart(el.id);
+                    sumarProductos(); // Llamo a la función para sumar productos y mostrar el total
+                };
 
-    card.appendChild(nombreProducto);
-    card.appendChild(imgProducto);
-    card.appendChild(description);
-    card.appendChild(precio);
-    card.appendChild(btnInfo);
+                card.appendChild(nombreProducto);
+                card.appendChild(imgProducto);
+                card.appendChild(description);
+                card.appendChild(precio);
+                card.appendChild(btnInfo);
 
-    container.appendChild(card);
-});
+                container.appendChild(card);
+            });
+        })
+        .catch((error) => {
+            console.error("Error al cargar los datos:", error);
+        });
+}
 
 // Función para sumar productos y mostrar el total
 function sumarProductos() {
@@ -67,12 +90,14 @@ function sumarProductos() {
 // Función para agregar productos al carrito
 function addToCart(id) {
     // console.log("Agregaste un nuevo producto");
-    
+
     // Obtengo el carrito, compruebo que exista, sino existe, lo declaro como un array vacío
     let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    // Llamo a los productos
-    const products = productosBaseDeDatos;
+    //********************************************************************** */
+    // Llamo a los productos que guarde en localstorage
+    //********************************************************************** */
+    const products = JSON.parse(localStorage.getItem('productos'));
 
     // Busco en los productos por el id que me llega de parametro
     let productToFind = products.find(product => parseInt(product.id) === parseInt(id));
@@ -143,8 +168,6 @@ let productoElegido2 = {
     precio: 20.49
 };
 
-addToCart(productoElegido1);
-addToCart(productoElegido2);
 
 // Mostrar la lista inicial
 mostrarCarrito();
@@ -153,31 +176,29 @@ mostrarCarrito();
 function finalizarCompra() {
     let totalValor = sumarProductos(); // Obtener el valor total
     alert('Compra finalizada. Valor total: $' + totalValor.toFixed(2));
-    
-     // Limpiar el carrito después de realizar la compra
-     localStorage.removeItem('carrito');
 
-     // Actualizar la visualización del carrito
-     mostrarCarrito();
+    // Limpiar el carrito después de realizar la compra
+    localStorage.removeItem('carrito');
+
+    // Actualizar la visualización del carrito
+    mostrarCarrito();
 }
 
 
- // Función para mostrar y ocultar el carrito
- function mostrarOcultarCarrito() {
+// Función para mostrar y ocultar el carrito
+function mostrarOcultarCarrito() {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let carritoLista = document.getElementById('carrito-lista');
     let finalizarCompraBtn = document.getElementById('finalizar-compra-btn');
-// Función para mostrar el carrito
+    // Función para mostrar el carrito
     function mostrarCarrito() {
-            
+
         if (carrito.length === 0) {
             carritoLista.innerHTML = "<p>El carrito está vacío</p>";
             if (finalizarCompraBtn) {
                 finalizarCompraBtn.style.display = 'none'; // Ocultar el botón si el carrito está vacío
             }
         } else {
-            // Renderizar la lista de productos en el carrito
-            // Puedes utilizar el código de la función mostrarCarrito que ya tienes
 
             // Mostrar el botón "Finalizar Compra" dentro del carrito
             if (!finalizarCompraBtn) {
@@ -191,13 +212,10 @@ function finalizarCompra() {
             }
         }
     }
-    
+
     // Toggle (alternar) la visibilidad del carrito
     carritoLista.style.display = (carritoLista.style.display === 'block') ? 'none' : 'block';
 
     // Mostrar el carrito actualizado al hacer clic en el ícono
     mostrarCarrito();
 }
-
-
-       
