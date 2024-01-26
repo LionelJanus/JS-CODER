@@ -132,32 +132,8 @@ h5{
     
 }
 
-.button{
-    padding: 1rem;
-    background-color: aqua;
-}
-
 .card:hover{
     cursor: pointer;
-}
-
-#carrito-icon  {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    margin-right: 15px;
-    margin-top: 10px;
-
-}
-
-#carrito-icon {
-    cursor: pointer;
-}
-
-#carrito-icon img{
-    width: 30px;
-    height: 30px;
 }
 
 #carrito-lista {
@@ -173,86 +149,57 @@ h5{
     flex-direction: column;
 }
 
-
+.carrito-menu{
+    width: 20px;
+    height: 20px;
+}
 
 /*Carrito Lateral*/
 
-.product-detail {
-    width: 360px;
-    padding: 24px;
-    box-sizing: border-box;
-    position: absolute;
-    right: 0;
+.carrito-menu {
+    position: fixed;
+    top: 60px;
+    right: -500px; /* Inicialmente oculto fuera del área visible */
+    width: 300px;
+    height: 80%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
   }
-  .title-container {
-    display: flex;
-  }
-  .title-container img {
-    transform: rotate(180deg);
-    margin-right: 14px;
-  }
-  .title {
-    font-size: var(--lg);
-    font-weight: bold;
-  }
-  .order {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 16px;
-    align-items: center;
-    background-color: var(--text-input-field);
-    margin-bottom: 24px;
-    border-radius: 8px;
-    padding: 0 24px;
-  }
-  .order p:nth-child(1) {
-    display: flex;
-    flex-direction: column;
-  }
-  .order p span:nth-child(1) {
-    font-size: var(--md);
-    font-weight: bold;
-  }
-  .order p:nth-child(2) {
-    text-align: end;
-    font-weight: bold;
-  }
-  .shopping-cart {
-    display: grid;
-    grid-template-columns: auto 1fr auto auto;
-    gap: 16px;
-    margin-bottom: 24px;
-    align-items: center;
-  }
-  .shopping-cart figure {
+  
+
+  
+  .carrito-lista ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
-  .shopping-cart figure img {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    object-fit: cover;
+  
+  .carrito-lista li {
+    margin-bottom: 10px;
   }
-  .shopping-cart p:nth-child(2) {
-    color: var(--very-light-pink);
+
+  #mostrar-menu-img{
+    width: 40px;
+    height: 40px;
+    margin-block: auto;
+    margin-right: 20px;
   }
-  .shopping-cart p:nth-child(3) {
-    font-size: var(--md);
-    font-weight: bold;
-  }
-  .primary-button {
-    background-color: var(--hospital-green);
-    border-radius: 8px;
-    border: none;
-    color: var(--white);
-    width: 100%;
-    cursor: pointer;
-    font-size: var(--md);
-    font-weight: bold;
-    height: 50px;
-  }
-  @media (max-width: 640px) {
-    .product-detail {
-      width: 100%;
-    }
+
+
+
+  #carrito-menu {
+
+    display: none; /* Por defecto, oculta el menú al cargar la página */
+    position: fixed; /* Mantiene el menú en su posición incluso cuando se desplaza la página */
+    top: 80px;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000; /* Asegura que el menú esté en la parte superior de otros elementos */
+    background-color:whitesmoke;
+    border-radius: 10px;
   }

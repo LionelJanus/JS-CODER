@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <title>Janusz Beer | Date un Gusto</title>
 </head>
@@ -22,14 +24,15 @@
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
-            <!-- Icono del carrito -->
-            <div id="carrito-icon" onclick="mostrarOcultarCarrito()">
-                <img src="/images/cart-arrow-down.svg"></img>
-                
-            </div>
+            <img id="mostrar-menu-img" src="./images/carrito-de-compras.png" alt="Mostrar Menú">
         </nav>
-        <!-- Lista del carrito -->
-        <div id="carrito-lista"></div>        
+
+        <div id="carrito-menu" class="carrito-menu">
+            <div id="carrito-lista" class="carrito-lista"></div>
+            <button id="finalizar-compra-btn" onclick="finalizarCompra()"> Finalizar Compra</button>
+            <button id="limpiar-carrito-btn" onclick="limpiarcarrito()"> Vaciar Carrito</button>
+          </div>        
+
 
         <div class="anuncio-pincipal" style="margin-top: 70px;">
             <h2 class="anuncio-title">¡Descubre el sabor de la cerveza como nunca antes! </h2>
