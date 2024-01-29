@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
 
 
     <title>Janusz Beer | Date un Gusto</title>
@@ -18,20 +25,27 @@
                 <img src="./images/JANUSZ-LOGO.png" alt="">
             </div>
             <h1 class="titulo">Janusz Beer</h1>
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="">Contacto</a></li>
+            <ul class="navbar">
+                <li class="navmenu"><a href="">Inicio</a></li>
+                <li class="navmenu"><a href="#nosotros">Nosotros</a></li>
+                <li class="navmenu"><a href="#productos">Productos</a></li>
+                <li class="navmenu"><a href="">Contacto</a></li>
+
+                <li style="margin-left: 80px;">
+                    <img id="img-carrito" src="./images/shopping-cart.png" alt="">
+                </li>
+                <div id="carrito-menu" class="carrito-menu">
+                    <h2>Lista de Productos</h2>
+                    <div id="carrito-lista" class="carrito-lista"></div>
+                    <button id="finalizar-compra-btn" onclick="finalizarCompra()"> Finalizar Compra</button>
+                    <button id="limpiar-carrito-btn" onclick="limpiarcarrito()"> Vaciar Carrito</button>
+                </div>
+
             </ul>
-            <img id="mostrar-menu-img" src="./images/carrito-de-compras.png" alt="Mostrar Menú">
+
         </nav>
 
-        <div id="carrito-menu" class="carrito-menu">
-            <div id="carrito-lista" class="carrito-lista"></div>
-            <button id="finalizar-compra-btn" onclick="finalizarCompra()"> Finalizar Compra</button>
-            <button id="limpiar-carrito-btn" onclick="limpiarcarrito()"> Vaciar Carrito</button>
-          </div>        
+
 
 
         <div class="anuncio-pincipal" style="margin-top: 70px;">
@@ -46,16 +60,19 @@
         </div>
     </header>
     <main>
-        
 
 
 
-        <section id="#productos" class="section-productos"></div>
-            <div id="container" class="container" style="padding-top: 150px;"></div>
-            
+
+        <section id="#productos" class="section-productos">
+            </div>
+            <div id="container" class="container" style="padding-top: 150px;">
+                
+            </div>
+
         </section>
-        
-        
+
+
     </main>
     <script src="./js/arrayproductos.json"></script>
     <script src="./js/main.js"></script>
