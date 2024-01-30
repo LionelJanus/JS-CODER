@@ -50,7 +50,6 @@ function traerProductos() {
         const btnInfo = document.createElement("button");
         btnInfo.innerText = "Agregar";
         btnInfo.onclick = function () {
-          // ++++++++++ addTocart esta bien con el segundo parametro que le pusiste, pero te quedo agregarlo a la funcion que ya tenes
           addToCart(el.id, parseInt(cantidadProducto.innerText));
           sumarProductos(); // Llamo a la función para sumar productos y mostrar el total
         };
@@ -59,8 +58,8 @@ function traerProductos() {
         card.appendChild(imgProducto);
         card.appendChild(description);
         card.appendChild(precio);
-        card.appendChild(cantidadProducto);
         card.appendChild(btnIncrementar);
+        card.appendChild(cantidadProducto);
         card.appendChild(btnDecrementar);
         card.appendChild(btnInfo);
 
@@ -71,14 +70,14 @@ function traerProductos() {
       console.error("Error al cargar los datos:", error);
     });
 }
-
+//**Funcion para aumentar y disminuir cantidades en la card**//
 function incrementarCantidad(elementoCantidad) {
-  var cantidadActual = parseInt(elementoCantidad.innerText);
+  let cantidadActual = parseInt(elementoCantidad.innerText);
   elementoCantidad.innerText = cantidadActual + 1;
 }
 
 function decrementarCantidad(elementoCantidad) {
-  var cantidadActual = parseInt(elementoCantidad.innerText);
+  let cantidadActual = parseInt(elementoCantidad.innerText);
 
   // Evitar que la cantidad sea menor que 1
   if (cantidadActual > 1) {
@@ -90,8 +89,6 @@ function decrementarCantidad(elementoCantidad) {
 function sumarProductos() {
   // datos almacenados en localStorage
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  
 
   // variables para la suma
   let totalProductos = 0;
@@ -149,7 +146,6 @@ function addToCart(id, quantity) {
         name: productToFind.name,
         description: productToFind.description,
         precio: productToFind.precio,
-        // ++++++++++ aca agregue cantidad
         cantidad: quantity,
       });
     }
@@ -170,38 +166,31 @@ function eliminarProducto(id) {
   mostrarCarrito(); // Actualizar la lista después de eliminar un producto
 }
 
+
+
+
 // Función para obtener y mostrar la lista de productos en el carrito
 function mostrarCarrito() {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   let listaHTML = "<ul>";
 
   carrito.forEach(function (producto) {
-    listaHTML += `<li>${producto.cantidad} - Cantidad: ${producto.name} - Precio: $${(producto.cantidad * parseFloat(producto.precio)).toFixed(
-      2
-    )} <button onclick="eliminarProducto(${
-      producto.id
-    })">Eliminar</button></li>`;
+    listaHTML += `<li> <span id="cantidad-${producto.id}">${producto.cantidad}</span> 
+    <button onclick="incrementarCantidad(${producto.id})">+</button>
+    <button onclick="decrementarCantidad(${producto.id})">-</button>
+    ${producto.name} - Precio: $${(producto.cantidad * parseFloat(producto.precio)).toFixed(2)} 
+    <button onclick="eliminarProducto(${producto.id})">Eliminar</button></li>`;
+
+    
   });
+
+  
 
   listaHTML += "</ul>";
 
   document.getElementById("carrito-lista").innerHTML = listaHTML;
 }
 
-// Ejemplo de uso: Agregar productos al carrito
-let productoElegido1 = {
-  id: 1,
-  name: "Producto A",
-  description: "Descripción del Producto A",
-  precio: 10.99,
-};
-
-let productoElegido2 = {
-  id: 2,
-  name: "Producto B",
-  description: "Descripción del Producto B",
-  precio: 20.49,
-};
 
 // Mostrar la lista inicial
 mostrarCarrito();
@@ -230,7 +219,7 @@ function finalizarCompra() {
   mostrarCarrito();
 }
 
-/*Menu*/ 
+/*Menu*/
 const mostrarMenuImg = document.getElementById("img-carrito");
 const carritoMenu = document.getElementById("carrito-menu");
 
@@ -271,30 +260,32 @@ mostrarMenuImg.addEventListener("click", function () {
     });
   }
 
-  // Asignar la función al evento clic del botón
+  // Asignar la función al evento clic del botón vaciar carro
   document.getElementById("limpiar-carrito-btn").onclick = vaciarCarrito;
 
-  function mostrarCarrito() {}
+  //**Funciones para aumentar y disminuir cantidades en la lista del carrito**//
+function incrementarCantidad(id) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let producto = carrito.find((p) => p.id === id);
 
-  // Función para mostrar el carrito en el menú lateral
-  function mostrarCarrito() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    let listaHTML = "<ul>";
-
-    carrito.forEach(function (producto) {
-      listaHTML += `<li>${producto.name} - Cantidad: ${
-        producto.cantidad
-      } - Precio: $${(producto.cantidad * parseFloat(producto.precio)).toFixed(
-        2
-      )} <button onclick="eliminarProducto(${
-        producto.id
-      })">Eliminar</button></li>`;
-    });
-
-    listaHTML += "</ul>";
-
-    document.getElementById("carrito-lista").innerHTML = listaHTML;
+  if (producto) {
+    producto.cantidad += 1;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito();
+    sumarProductos();
   }
+}
 
-  // ...
+function decrementarCantidad(id) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let producto = carrito.find((p) => p.id === id);
+
+  if (producto && producto.cantidad > 1) {
+    producto.cantidad -= 1;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito();
+    sumarProductos();
+  }
+}
+
 });

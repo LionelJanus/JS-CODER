@@ -110,14 +110,16 @@ anuncio-principal{
     height: 800px; 
 }
 
-.container{
-    
-    gap: 20px;
-    padding: 2rem;
-}
+#container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente fila */
+    justify-content: space-around; /* Alinea las tarjetas en el centro del contenedor */
+  }
 
 h5{
     text-align: justify;
+    width: inherit;
+
 }
 
 .card{
@@ -221,3 +223,10 @@ h5{
   .btn-group{
     margin-left: 80px;
   }
+
+  
+  
+
+
+
+  
