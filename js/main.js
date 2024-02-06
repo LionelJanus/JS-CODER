@@ -1,7 +1,7 @@
 //********************************************************************** */
 // Cuando cargue el documento HTML, llama a la funcion traer productos
 //********************************************************************** */
-traerProductos();
+document.addEventListener('DOMContentLoaded',traerProductos());
 
 const container = document.getElementById("container");
 function traerProductos() {
