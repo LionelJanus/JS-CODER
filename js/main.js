@@ -5,7 +5,7 @@ traerProductos();
 
 const container = document.getElementById("container");
 function traerProductos() {
-  fetch(`./js/arrayproductos.json`) // fetch utiliza la url y hace una promesa
+  fetch(`arrayproductos.json`) // fetch utiliza la url y hace una promesa
     .then((response) => response.json()) // el primer then nos dice que después de resolver exitosamente la promesa, apliquemos el método .json() para formatear la data
     .then((data) => {
       const productos = data;
