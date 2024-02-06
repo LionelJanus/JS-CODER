@@ -182,7 +182,6 @@ function mostrarCarrito() {
   });
 
   
-
   listaHTML += "</ul>";
 
   document.getElementById("carrito-lista").innerHTML = listaHTML;
