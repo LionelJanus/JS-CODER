@@ -166,10 +166,7 @@ function eliminarProducto(id) {
   mostrarCarrito(); // Actualizar la lista después de eliminar un producto
 }
 
-
-
-
-// Función para obtener y mostrar la lista de productos en el carrito
+//Función para obtener y mostrar la lista de productos en el carrito
 function mostrarCarrito() {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   let listaHTML = "<ul>";
@@ -191,9 +188,6 @@ function mostrarCarrito() {
   document.getElementById("carrito-lista").innerHTML = listaHTML;
 }
 
-
-// Mostrar la lista inicial
-mostrarCarrito();
 
 // Función para finalizar la compra
 function finalizarCompra() {
@@ -287,5 +281,6 @@ function decrementarCantidad(id) {
     sumarProductos();
   }
 }
-
+// Mostrar la lista inicial
+mostrarCarrito();
 });
